@@ -3,9 +3,6 @@
 	$login = $_GET[ 'login' ] ;
 	$mdp = $_GET[ 'mdp' ] ;
 	
-	//$login = 'madam' ;
-	//$mdp = 'azerty' ;
-	
 
 	$bd = new PDO(
 					'mysql:host=localhost;dbname=sanayabio_stocks' ,
@@ -37,7 +34,7 @@
 		
 		$_SESSION[ 'login' ] = $login ;
 		
-		header( 'Location: ../vues/vue-accueil.php' ) ;
+		header( 'Location: ../vues/vue-stock.php' ) ;
 	}
 	else {
 		header( 'Location: ../index.php?echec=1&login=' . $login ) ;

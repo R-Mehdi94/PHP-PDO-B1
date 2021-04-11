@@ -1,5 +1,35 @@
 <?php session_start() ; ?>
 
+
+<?php
+
+
+
+	$produits = array(
+	
+		array(
+			'code' => 'AAAA1' ,
+			'libelle' => 'Aaaaa' ,
+			'quantite' => 1
+		) ,
+		
+		array(
+			'code' => 'BBBB2' ,
+			'libelle' => 'Bbbbb' ,
+			'quantite' => 2	
+		) ,
+		
+		array(
+			'code' => 'CCCC3' ,
+			'libelle' => 'Ccccc' ,
+			'quantite' => 3
+		)
+	
+	) ;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,16 +54,16 @@
 							<a class="nav-link" href="../vues/vue-stock.php">Stock</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Nouveau</a>
+							<a class="nav-link" href="../vues/vue-nouveau-produit.php">Nouveau</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="../vues/vue-selection-produit.php">Retrait</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Entrée</a>
+							<a class="nav-link" href="../vues/vue-entree-quantite.php">Entrée</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Sortie</a>
+							<a class="nav-link" href="../vues/vue-sortie-quantite.php">Sortie</a>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -47,6 +77,32 @@
 				</div>
 			</div>
 		</nav>
+		
+		<h4 class="alert alert-primary" role="alert">
+			État du stock
+		</h4>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Code</td>
+					<td>Libellé</td>
+					<td>Quantité</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<?php foreach( $produits as $unProduit ){ ?>
+					<tr>
+						<td><?php echo $unProduit[ 'code' ] ; ?></td>
+						<td><?php echo $unProduit[ 'libelle' ] ; ?></td>
+						<td><?php echo $unProduit[ 'quantite' ] ; ?></td>
+					</tr>
+				<?php } ?>
+				
+			</tbody>
+			
+		</table>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
