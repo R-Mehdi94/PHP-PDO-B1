@@ -28,41 +28,48 @@
 			</div>
 		</nav>
 		
-		
-		<form action="controleurs/ctrl-authentification.php" method="GET">
-		
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Nom de connexion</label>
-				<div class="col-sm-10">
-					<input type="text" name="login" value="<?php echo $login ; ?>"/>
-				</div>
-			</div>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4"></div>
+				
+				<div class="col-lg-4">
+					<form action="controleurs/ctrl-authentification.php" method="GET">
+					
+						<div class="mb-3 form-group">
+							<label class="col-form-label">Nom de connexion</label>
+							<input type="text" class="form-control" name="login" value="<?php echo $login ; ?>"/>
+							
+						</div>
+						
+						<div class="mb-3 form-group">
+							<label class="col-form-label">Mot de passe</label>
+							<input type="password"  class="form-control" name="mdp" />
+						</div>
+						
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Valider</button>
+							<button class="btn btn-primary" type="reset">Annuler</button>
+						</div>
+					
+					</form>
 			
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Mot de passe</label>
-				<div class="col-sm-10">
-					<input type="password" name="mdp" />
+					<?php if( isset($_GET[ 'echec' ]) ){ ?>
+						<?php if( $_GET[ 'echec' ] == 1 ){ ?>			
+							<div class="alert alert-danger" role="alert">
+								Nom de connexion ou mot de passe incorrect.
+							</div>
+						<?php } else if( $_GET[ 'echec' ] == 0 ){ ?>
+							<div class="alert alert-danger" role="alert">
+								Site momentanément indisponible.
+							</div>
+						<?php } ?>
+					<?php } ?>
 				</div>
+				
+				<div class="col-lg-4"></div>
 			</div>
-			
-			<div class="mb-3">
-				<button class="btn btn-primary" type="submit">Valider</button>
-				<button class="btn btn-primary" type="reset">Annuler</button>
-			</div>
-		
-		</form>
-		
-		<?php if( isset($_GET[ 'echec' ]) ){ ?>
-			<?php if( $_GET[ 'echec' ] == 1 ){ ?>			
-				<div class="alert alert-danger" role="alert">
-					Nom de connexion ou mot de passe incorrect.
-				</div>
-			<?php } else if( $_GET[ 'echec' ] == 0 ){ ?>
-				<div class="alert alert-danger" role="alert">
-					Site momentanement indisponible.
-				</div>
-			<?php } ?>
-		<?php } ?>
+		</div>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
