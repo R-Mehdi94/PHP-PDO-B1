@@ -3,6 +3,23 @@
 
 <?php
 
+	$produits = array() ;
+
+	try {
+		
+		// VOTRE CODE ICI :
+		// La variable $produits (tableau de tableaux associatifs) doit-être valorisée avec les valeurs de la table 
+		// Produit de la base de données.
+		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
+		// trois éléments ont pour clés 'code', 'libelle' et 'quantite'.
+	}
+	catch( PDOException $e ){
+		
+		session_unset() ;
+		session_destroy() ;
+		
+		header( 'Location: ../index.php?echec=0' ) ;
+	}
 
 
 	$produits = array(
@@ -78,31 +95,35 @@
 			</div>
 		</nav>
 		
-		<h4 class="alert alert-primary" role="alert">
-			État du stock
-		</h4>
+		<div class="container-fluid">
 		
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<td>Code</td>
-					<td>Libellé</td>
-					<td>Quantité</td>
-				</tr>
-			</thead>
-			<tbody>
-				
-				<?php foreach( $produits as $unProduit ){ ?>
-					<tr>
-						<td><?php echo $unProduit[ 'code' ] ; ?></td>
-						<td><?php echo $unProduit[ 'libelle' ] ; ?></td>
-						<td><?php echo $unProduit[ 'quantite' ] ; ?></td>
-					</tr>
-				<?php } ?>
-				
-			</tbody>
+			<h4 class="alert alert-primary" role="alert">
+				État du stock
+			</h4>
 			
-		</table>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Code</td>
+						<td>Libellé</td>
+						<td>Quantité</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<?php foreach( $produits as $unProduit ){ ?>
+						<tr>
+							<td><?php echo $unProduit[ 'code' ] ; ?></td>
+							<td><?php echo $unProduit[ 'libelle' ] ; ?></td>
+							<td><?php echo $unProduit[ 'quantite' ] ; ?></td>
+						</tr>
+					<?php } ?>
+					
+				</tbody>
+				
+			</table>
+		
+		</div>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 

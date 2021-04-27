@@ -42,6 +42,7 @@
 		}
 	}
 	catch( PDOException $e ){
+		
 		header( 'Location: ../index.php?echec=0' ) ;
 	}
 

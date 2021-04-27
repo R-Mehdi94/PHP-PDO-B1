@@ -2,7 +2,22 @@
 
 	session_start() ;
 	
-	$codeProduit = $_GET[ 'codeProduit' ] ;
+	$code = $_GET[ 'codeProduit' ] ;
 		
-	header( 'Location: ../vues/vue-stock.php' ) ;
+	try {
+		
+		// VOTRE CODE ICI
+		
+		
+		
+				
+		header( 'Location: ../vues/vue-stock.php' ) ;
+	}
+	catch( PDOException $e ){
+		
+		session_unset() ;
+		session_destroy() ;
+		
+		header( 'Location: ../index.php?echec=0' ) ;
+	}
 ?>

@@ -1,27 +1,14 @@
 <?php session_start() ; ?>
 
-
 <?php 
-
-	$produits = array(
-	
-		array(
-			'code' => 'AAAA1' ,
-			'libelle' => 'Aaaaa' ,
-		) ,
-		
-		array(
-			'code' => 'BBBB2' ,
-			'libelle' => 'Bbbbb' ,
-		) ,
-		
-		array(
-			'code' => 'CCCC3' ,
-			'libelle' => 'Ccccc' ,
-		)
-	
-	) ;
-
+	if( isset($_GET[ 'libelle' ]) && isset( $_GET[ 'quantite' ] ) ){
+		$libelle = $_GET[ 'libelle' ] ;
+		$quantite = $_GET[ 'quantite' ] ;
+	} 
+	else {
+		$libelle = '' ;
+		$quantite = 0 ;
+	} 
 ?>
 
 
@@ -73,55 +60,70 @@
 			</div>
 		</nav>
 		
-		<h4 class="alert alert-primary" role="alert">
-			Nouveau produit à la vente
-		</h4>
+		<div class="container-fluid">
 		
-		<form action="../controleurs/ctrl-enregistrer-produit.php" method="GET">
-		
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Code :</label>
-				<div class="col-sm-10">
-					<input type="text" name="code" />
-				</div>
-			</div>
+			<h4 class="alert alert-primary" role="alert">
+				Nouveau produit à la vente
+			</h4>
 			
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Libellé :</label>
-				<div class="col-sm-10">
-					<input type="text" name="libelle" />
-				</div>
-			</div>
-		
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Quantité :</label>
-				<div class="col-sm-10">
-					<input type="number" name="quantite" value="0" min="0" max="200" />
-				</div>
-			</div>
+			<div class="row">
+
+				<div class="col-lg-4"></div>
+				
+				<div class="col-lg-4">
 			
+					<form action="../controleurs/ctrl-enregistrer-produit.php" method="GET">
+					
+						<div class="mb-3">
+							<label class="col-sm-2 col-form-label">Code :</label>
+							<div class="col-sm-10">
+								<input type="text" name="code" value="" />
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<label class="col-sm-2 col-form-label">Libellé :</label>
+							<div class="col-sm-10">
+								<input type="text" name="libelle" value="<?php echo $libelle ; ?>" />
+							</div>
+						</div>
+					
+						<div class="mb-3">
+							<label class="col-sm-2 col-form-label">Quantité :</label>
+							<div class="col-sm-10">
+								<input type="number" name="quantite" value="<?php echo $quantite ; ?>" min="0" max="200" />
+							</div>
+						</div>
+						
+						
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Enregistrer</button>
+							<button class="btn btn-primary" type="reset">Annuler</button>
+						</div>
+					
+					</form>
+					
+					
+					<?php if( isset( $_GET[ 'code' ] ) ){ ?>
+						<?php if( $_GET[ 'code' ] == 'NOK' ){ ?>
+							<div class="alert alert-danger" role="alert">
+								Le code produit est déjà utilisé.
+							</div>
+						<?php } else { ?>
+							<div class="alert alert-success" role="alert">
+								Produit <?php echo $_GET[ 'code' ] ; ?> enregistré.
+							</div>
+						<?php } ?>
+					<?php } ?>
+					
+				</div>
+				
+				<div class="col-lg-4"></div>
+				
+			</div>	
+
+		</div>
 			
-			<div class="mb-3">
-				<button class="btn btn-primary" type="submit">Enregistrer</button>
-				<button class="btn btn-primary" type="reset">Annuler</button>
-			</div>
-		
-		</form>
-		
-		
-		<?php if( isset( $_GET[ 'codeProduit' ] ) ){ ?>
-			<?php if( $_GET[ 'codeProduit' ] == 'NOK' ){ ?>
-				<div class="alert alert-danger" role="alert">
-					Le produit existe déjà dans la base.
-				</div>
-			<?php } else { ?>
-				<div class="alert alert-success" role="alert">
-					Produit <?php echo $_GET[ 'codeProduit' ] ; ?> enregistré.
-				</div>
-			<?php } ?>
-		<?php } ?>		
-		
-		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 	</body>

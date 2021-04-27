@@ -3,6 +3,23 @@
 
 <?php
 
+	$produits = array() ;
+
+	try {
+		
+		// VOTRE CODE ICI :
+		// La variable $produits (tableau de tableaux associatifs) doit-être valorisée avec les valeurs de la table 
+		// Produit de la base de données.
+		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
+		// deux éléments ont pour clés 'code' et 'libelle'.
+	}
+	catch( PDOException $e ){
+	
+		session_unset() ;
+		session_destroy() ;
+	
+		header( 'Location: ../index.php?echec=0' ) ;
+	}
 
 
 	$produits = array(
@@ -75,32 +92,45 @@
 			</div>
 		</nav>
 		
-		<h4 class="alert alert-primary" role="alert">
-			Produit à retirer de la vente
-		</h4>
+		<div class="container-fluid">
 		
-		<form action="../controleurs/ctrl-supprimer-produit.php" method="GET">
-		
-		
+			<h4 class="alert alert-primary" role="alert">
+				Produit à retirer de la vente
+			</h4>
 			
-		
-			<div class="mb-3">
-				<label class="col-sm-2 col-form-label">Produit :</label>
-				<select class="form-select" name="codeProduit">
+			<div class="row">
 				
-					<?php foreach( $produits as $unProduit ){ ?>
-						<option value="<?php echo $unProduit[ 'code' ] ?>"><?php echo $unProduit[ 'code' ] . ' : ' . $unProduit[ 'libelle' ] ?></option>
-					<?php } ?>
+				<div class="col-lg-4"></div>
 				
-				</select>
-			</div>
+				<div class="col-lg-4">
 			
-			<div class="mb-3">
-				<button class="btn btn-primary" type="submit">Supprimer</button>
-				<button class="btn btn-primary" type="reset">Annuler</button>
+					<form action="../controleurs/ctrl-supprimer-produit.php" method="GET">
+					
+						<div class="mb-3">
+							<label class="col-sm-2 col-form-label">Produit :</label>
+							<select class="form-select" name="codeProduit">
+							
+								<?php foreach( $produits as $unProduit ){ ?>
+									<option value="<?php echo $unProduit[ 'code' ] ?>"><?php echo $unProduit[ 'code' ] . ' : ' . $unProduit[ 'libelle' ] ?></option>
+								<?php } ?>
+							
+							</select>
+						</div>
+						
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Supprimer</button>
+							<button class="btn btn-primary" type="reset">Annuler</button>
+						</div>
+					
+					</form>
+				
+				</div>
+				
+				<div class="col-lg-4"></div>
+				
 			</div>
 		
-		</form>
+		</div>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
