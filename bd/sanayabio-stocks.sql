@@ -69,7 +69,7 @@ CREATE TABLE `Produit` (
 
 LOCK TABLES `Produit` WRITE;
 /*!40000 ALTER TABLE `Produit` DISABLE KEYS */;
-INSERT INTO `Produit` VALUES ('ACVA1','Charbon Végétal Activé',10),('ARBS5','Argile Blanche Surfine',3),('ARIV2','Argile Illite Verte Surfine',25),('ARMS3','Argile Montmorillonite Surfine',11),('ERGR1','Gelée Royale',0),('ERPR1','Propolis',8),('MACP2','Chlorelle Premium',1),('PMSP4','Spiruline (poudre)',18),('SEEP1','Sel Epsom',101),('SEMM1','Sel Mer Morte',21);
+INSERT INTO `Produit` VALUES ('ACVA1','Charbon Vegetal Active',10),('ARBS5','Argile Blanche Surfine',3),('ARIV2','Argile Illite Verte Surfine',25),('ARMS3','Argile Montmorillonite Surfine',11),('ERGR1','Gelee Royale',0),('ERPR1','Propolis',8),('MACP2','Chlorelle Premium',1),('PMSP4','Spiruline (poudre)',18),('SEEP1','Sel Epsom',101),('SEMM1','Sel Mer Morte',21);
 /*!40000 ALTER TABLE `Produit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

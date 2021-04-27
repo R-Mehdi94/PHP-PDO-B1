@@ -12,6 +12,21 @@
 		// Produit de la base de données.
 		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
 		// deux éléments ont pour clés 'code' et 'libelle'.
+		
+		$bd = new PDO(
+						'mysql:host=localhost;dbname=sanayabio_stocks' ,
+						'sanayabio' ,
+						'sb2021'
+			) ;
+			
+		$sql = 'select code , libelle '
+			 . 'from Produit ' ;
+			 
+		$st = $bd -> prepare( $sql ) ;
+		
+		$st -> execute() ;
+		$produits = $st -> fetchall() ;
+		
 	}
 	catch( PDOException $e ){
 	
@@ -21,25 +36,6 @@
 		header( 'Location: ../index.php?echec=0' ) ;
 	}
 
-
-	$produits = array(
-	
-		array(
-			'code' => 'AAAA1' ,
-			'libelle' => 'Aaaaa' ,
-		) ,
-		
-		array(
-			'code' => 'BBBB2' ,
-			'libelle' => 'Bbbbb' ,
-		) ,
-		
-		array(
-			'code' => 'CCCC3' ,
-			'libelle' => 'Ccccc' ,
-		)
-	
-	) ;
 
 ?>
 

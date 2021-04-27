@@ -22,25 +22,6 @@
 	}
 
 
-	$produits = array(
-	
-		array(
-			'code' => 'AAAA1' ,
-			'libelle' => 'Aaaaa' ,
-		) ,
-		
-		array(
-			'code' => 'BBBB2' ,
-			'libelle' => 'Bbbbb' ,
-		) ,
-		
-		array(
-			'code' => 'CCCC3' ,
-			'libelle' => 'Ccccc' ,
-		)
-	
-	) ;
-
 ?>
 
 
