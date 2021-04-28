@@ -6,7 +6,7 @@
 		
 	try {
 		
-		// VOTRE CODE ICI
+		// VOTRE CODE ICI : Supprimer le produit dont le code correspond à la valeur de la variable $code
 		
 		
 		

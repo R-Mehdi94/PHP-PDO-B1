@@ -12,6 +12,11 @@
 		// Produit de la base de données.
 		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
 		// trois éléments ont pour clés 'code', 'libelle' et 'quantite'.
+		
+		
+		
+		
+		
 	}
 	catch( PDOException $e ){
 		

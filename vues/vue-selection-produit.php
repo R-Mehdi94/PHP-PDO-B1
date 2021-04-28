@@ -7,7 +7,6 @@
 
 	try {
 		
-		// VOTRE CODE ICI :
 		// La variable $produits (tableau de tableaux associatifs) doit-être valorisée avec les valeurs de la table 
 		// Produit de la base de données.
 		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
