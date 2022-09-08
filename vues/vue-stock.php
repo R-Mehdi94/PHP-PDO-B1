@@ -12,6 +12,48 @@
 		// Produit de la base de données.
 		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
 		// trois éléments ont pour clés 'code', 'libelle' et 'quantite'.
+
+
+		// Connexion à la BD
+
+		$bd = new PDO(
+			'mysql:host=localhost;dbname=sanayabio_stocks' ,
+			'sanayabio' ,
+			'sb2021'
+		) ;
+
+
+
+
+
+		//Création de la requete SQL
+
+		$sql = 'select *'
+		.'from Produit ' ;
+
+
+
+
+
+		// Préparation de la requete SQL
+
+		$st = $bd -> prepare($sql);
+
+
+		
+
+
+		// Exécution de la requete SQL
+
+		$st -> execute() ;
+
+
+
+
+
+		//Retourne un tableau regroupant toutes les lignes du jeu d'enregistrement
+
+		$produits = $st -> fetchall() ;
 		
 		
 		

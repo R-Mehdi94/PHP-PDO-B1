@@ -12,6 +12,20 @@
 		// Produit de la base de données.
 		// Chaque élément de la variable $produits est un tableau associatif qui correspond à un produit et dont les 
 		// deux éléments ont pour clés 'code' et 'libelle'.
+
+		$bd = new PDO(
+			'mysql:host=localhost;dbname=sanayabio_stocks' ,
+			'sanayabio' ,
+			'sb2021'
+		) ;
+
+		$sql = 'select code , libelle '
+			. ' from Produit ' ;
+
+		$st = $bd->prepare($sql);
+
+		$st -> execute() ;
+		$produits = $st -> fetchall() ;
 		
 		
 		
@@ -94,7 +108,7 @@
 						<div class="mb-3">
 							<label class="col-sm-2 col-form-label">Produit :</label>
 							<div class="col-sm-10">
-								<select class="form-select" name="codeProduit">
+								<select class="form-select" name="code">
 								
 									<?php foreach( $produits as $unProduit ){ ?>
 										<option value="<?php echo $unProduit[ 'code' ] ?>"><?php echo $unProduit[ 'code' ] . ' : ' . $unProduit[ 'libelle' ] ?></option>

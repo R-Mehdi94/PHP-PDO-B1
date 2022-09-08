@@ -103,7 +103,7 @@
 					
 						<div class="mb-3">
 							<label class="col-sm-2 col-form-label">Produit :</label>
-							<select class="form-select" name="codeProduit">
+							<select class="form-select" name="code">
 							
 								<?php foreach( $produits as $unProduit ){ ?>
 									<option value="<?php echo $unProduit[ 'code' ] ?>"><?php echo $unProduit[ 'code' ] . ' : ' . $unProduit[ 'libelle' ] ?></option>
